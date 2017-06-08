@@ -1,0 +1,43 @@
+body{
+  display: flex;
+  justify-content: center;
+}
+.container{
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  box-shadow: 0 0 5px 0 rgba(0,0,0,0.75);
+}
+
+.heading{
+  background-color: lightblue;
+  color: white;
+  padding: 30px;
+  margin: 0;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  margin: 35px;
+}
+
+input, select{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+
+footer{
+  background-color: lightblue;
+}
+
+#submit-button{
+  color: white;
+  padding: 10px;
+  margin: 15px;
+  background: blue;
+}
