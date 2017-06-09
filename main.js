@@ -84,39 +84,38 @@ let form = document.getElementById("create-my-form");
 for (let i = 0; i < formData.length; i++){
   let obj = formData[i];
   let htmlContent;
+  let icon;
+  if (obj.icon){
+    icon = document.createElement("i");
+    icon.classList.add("fa");
+    icon.classList.add(obj.icon);}
+
   if (obj.options.length > 0){
-
     let optionsArray = obj.options;
-    htmlContent = '<select id="' + obj.id +  '"><option disabled>' + obj.label + '</option>';
+    let selectEle = document.createElement("select");
+    form.appendChild(selectEle);
+
     for (let j = 0; j < optionsArray.length; j++){
-      console.log();
-      htmlContent += '<option value="' + optionsArray[j].value + '">' + optionsArray[j].label + '</option>';
+      let htmlContent = document.createElement("option");
+      htmlContent.value = optionsArray[j].value;
+      htmlContent.innerHTML = optionsArray[j].label;
+      selectEle.appendChild(htmlContent);
     }
-    htmlContent += '</sselect>'
-  }
-  else if (obj.type === "textare"){
-    htmlContent = '<input type="' + obj.type + '" id="' + obj.id + '" placeholder="' + obj.label + '\n\n">';
   }
 
+  else if (obj.type === "textarea"){
+    htmlContent = document.createElement("textarea");
+    htmlContent.placeholder = obj.label;
+    htmlContent.id = obj.id;
+    form.appendChild(icon);
+    form.appendChild(htmlContent);
+  }
   else {
-    htmlContent = '<input type="' + obj.type + '" id="' + obj.id + '" placeholder="' + obj.label + '">';
+    htmlContent = document.createElement("input");
+    htmlContent.type = obj.type;
+    htmlContent.placeholder = obj.label;
+    htmlContent.id = obj.id;
+    form.appendChild(icon);
+    form.appendChild(htmlContent);
   }
-  form.insertAdjacentHTML("beforeend", htmlContent);
 }
-
-
-
-
-
-
-// let select = "<select><option disabled>Select language</option><option value=\"EN\">English</option><option value=\"FR\">French</option><option value=\"SP\">Spanish</option><option value=\"CH\">Chinese</option><option value=\"JP\">Japanese</option></select>"
-//
-// // form.insertAdjacentHTML("beforeend", '<i class="fa fa-user"></i>');
-// form.insertAdjacentHTML("beforeend", '<input type="text" id="user-first-name" placeholder="First Name">');
-// form.insertAdjacentHTML("beforeend", '<input type="text" id="user-last-name" placeholder="Last Name">');
-// form.insertAdjacentHTML("beforeend", '<input type="email" id="user-email" placeholder="Email Address">');
-// form.insertAdjacentHTML("beforeend", '<input type="text" id="user-website" placeholder="Current website url">');
-// form.insertAdjacentHTML("beforeend", select);
-//form.insertAdjacentHTML("beforeend", '<textarea form ="create-my-form" id="user-comments" placeholder="Your Comment">');
-// form.insertAdjacentHTML("beforeend", '<input type="tel" id="user-mobile" placeholder="Mobile number">');
-// form.insertAdjacentHTML("beforeend", '<input type="tel" id="user-phone" placeholder="Home number">');

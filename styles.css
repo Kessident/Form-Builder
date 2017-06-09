@@ -10,7 +10,7 @@ body{
 }
 
 .heading{
-  background-color: lightblue;
+  background-color: blue;
   color: white;
   padding: 30px;
   margin: 0;
@@ -22,13 +22,22 @@ form{
   margin: 35px;
 }
 
-input, select{
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+select{
+  height: 3rem;
+  margin: 15px 0 0 2.5em;
+}
+
+input, textarea{
+  resize: vertical;
+  max-height: 10em;
+  font-family: FontAwesome;
   padding: 10px;
   border-radius: 5px;
-  margin: 10px 0;
+  margin: 10px 0 10px 2.5em;
+}
+
+i{
+  margin: 2em 0 -2em 0;
 }
 
 footer{
